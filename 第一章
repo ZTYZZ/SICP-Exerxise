@@ -1,1 +1,9 @@
-
+#练习1.3
+(define (e13 a b c)
+  (cond ((and (< a b ) (< a c)) (+(square b)(square c)))
+        ((and (< b a) (< b c)) (+(square a)(square c)))
+        (else (+(square a)(square c)))))
+(define (square x)
+  (* x x))
+  
+  
