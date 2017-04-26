@@ -21,3 +21,21 @@
           #调试了很久 ，真正懂得了写代码和看代码是不一样的
    
      
+#练习 1.37
+(define (cont-frac N D k)
+
+    (define (cf i)
+        (if (= k i)
+            (/ (N k) (D k))
+            (/ (N i)
+               (+ (D i) (cf (+ i 1))))))
+
+    (cf 1)
+#迭代
+(define (cont-frac n d k)
+  (define (iter i answer)
+    (if (= i 0)
+        answer
+        (iter (- i 1) (/(n i) (+(d i) answer)))))
+    ( iter (- k 1) (/ (n k) ( d k))))
+    #注意ite 中的k初始值，记住这一类型
