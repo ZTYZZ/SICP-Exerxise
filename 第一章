@@ -39,3 +39,9 @@
         (iter (- i 1) (/(n i) (+(d i) answer)))))
     ( iter (- k 1) (/ (n k) ( d k))))
     #注意ite 中的k初始值，记住这一类型
+#练习1.41
+(define (double f)
+  (lambda (x) ( f (f x))))
+#练习1.42
+(define (compose f g)
+  (lambda (x) (f (g x))))
