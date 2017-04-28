@@ -1,1 +1,6 @@
 
+#练习2.1
+(define (make-raket x y)
+  (cond (( and  ( > y 0)) (cons x y))
+        ((and (< x 0 ) (< y 0)) (cons (- x) (- y)))
+        ((and (> x 0) (< y 0)) (cons (- x) (- y)))))
