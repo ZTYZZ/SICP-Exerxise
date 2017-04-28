@@ -45,3 +45,29 @@
 #练习1.42
 (define (compose f g)
   (lambda (x) (f (g x))))
+3练习1.43
+(define (repeated f n)
+  (if (< n 2)
+      f
+      (compose f (repeated f (- n 1)))))
+(define (compose f g)
+  (lambda (x) (f (g x))))
+(define (square x)
+  (* x x))
+                       
+ #练习1.44
+ (define (repeated f n)
+  (if (< n 2)
+      f
+      (compose f (repeated f (- n 1)))))
+(define (compose f g)
+  (lambda (x) (f (g x))))
+(define (square x)
+  (* x x))
+(define dx 0.00001)
+(define (smooth f )
+  (lambda (x) (average ( (f (- x dx)) (f x) (f (+ x dx)))) ))
+(define (average x y z)
+  (/ 1 ( * 3 x y z)))
+(define (n-smooth f n)
+  (repeated (smooth f) n))
