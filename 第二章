@@ -4,3 +4,70 @@
   (cond (( and  ( > y 0)) (cons x y))
         ((and (< x 0 ) (< y 0)) (cons (- x) (- y)))
         ((and (> x 0) (< y 0)) (cons (- x) (- y)))))
+#练习2.2
+(define (make-segment x y)
+  (cons x y))
+(define (start-segment x)
+  (car x))
+(define (end-segment x)
+  (cdr x))
+(define (make-point x y)
+  (cons x y))
+(define (x-point x)
+  (car x))
+(define (y-point x)
+  (cdr x))
+(define (midpoint-segment x)
+  (make-point (/  (+ (x-point (start-segment x))
+                      (x-point (end-segment x))) 2)
+              (/  (+ (y-point (start-segment x))
+                      (y-point (end-segment x))) 2)))
+(define (print-point p)
+  (newline)
+  (display "(")
+  (display (x-point p))
+  (display ".")
+  (display (y-point p))
+  (display ")"))
+
+> (print-point (midpoint-segment (cons (cons 3 4) (cons 5 6))))
+
+
+
+练习2.17
+
+解法一：
+(define (last-pair items)
+  (if (= (length items) 1)
+      items
+      (last-pair (cdr items))))
+(define (length items)
+  (if (null? items)
+      0
+      (+ 1 (length (cdr items)))))
+
+解法二
+(define (last-pair items)
+  (list (list-ref items (length items))))
+(define (list-ref items n)
+  (if ( = n 1)
+      (car items)
+      (list-ref (cdr items) (- n 1))))
+(define (length items)
+  (if (null? items)
+      0
+      (+ 1 (length (cdr items)))))
+
+
+结果：> (last-pair (list 23 72 149 34))
+{mcons 34 '()}
+
+练习2.18
+(define (reverse items)
+  (if (= (length items) 0)
+      items
+      (list (reverse (cdr items)) (car items))))
+(define (length items)
+  (if (null? items)
+      0
+      (+ 1 (length (cdr items)))))
